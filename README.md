@@ -1,0 +1,1 @@
+API CRUD na AWS com Lambda e DynamoDB
