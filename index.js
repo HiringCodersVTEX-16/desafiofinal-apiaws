@@ -13,6 +13,7 @@ exports.handler = async(event, context) => {
 
   try {
     switch (event.routeKey) {
+      //Delete lead by id
       case "DELETE /leads/{id}":
         await dynamo
           .delete({
@@ -24,6 +25,7 @@ exports.handler = async(event, context) => {
           .promise();
         body = `Deleted lead ${event.pathParameters.id}`;
         break;
+      //Get lead by id  
       case "GET /leads/{id}":
         body = await dynamo
           .get({
@@ -34,9 +36,11 @@ exports.handler = async(event, context) => {
           })
           .promise();
         break;
+      //Get all leads  
       case "GET /leads":
         body = await dynamo.scan({ TableName: "http-crud-tutorial-items" }).promise();
         break;
+      //Cria uma lead  
       case "POST /leads":
         let requestJSON = JSON.parse(event.body);
         await dynamo
@@ -51,23 +55,24 @@ exports.handler = async(event, context) => {
             }
           })
           .promise();
-        body = `Post item ${requestJSON.email}`;
+          body = `Post lead ${requestJSON.id}`;
         break;
+      //Update lead by id  
       case "PUT /leads/{id}":
         let requestJSON1 = JSON.parse(event.body);
-        await dynamo.update(
-          {
+        await dynamo.update({
             TableName: 'http-crud-tutorial-items',
-          Key: {
-            id: event.pathParameters.id
-          },
-          UpdateExpression: "set email = :em ", 
-          ExpressionAttributeValues: {
-            ':em': requestJSON1.email
-          }
+            Key: {
+              id: event.pathParameters.id
+            },
+
+            UpdateExpression: "set cliente = :cliente",
+            ExpressionAttributeValues: {
+              ':cliente': requestJSON1.cliente
+            }
           })
           .promise();
-        body = `Updated lead ${requestJSON1.email}`;
+        body = `Updated lead ${event.pathParameters.id}`;
         break;
       default:
         throw new Error(`Unsupported route: "${event.routeKey}"`);
