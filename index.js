@@ -13,66 +13,70 @@ exports.handler = async(event, context) => {
 
   try {
     switch (event.routeKey) {
-      //Delete lead by id
-      case "DELETE /leads/{id}":
+      //Delete lead by email
+      case "DELETE /leads/{email}":
         await dynamo
           .delete({
-            TableName: "http-crud-tutorial-items",
+            TableName: "leads-hc",
             Key: {
-              id: event.pathParameters.id
+              email: event.pathParameters.email
             }
           })
           .promise();
-        body = `Deleted lead ${event.pathParameters.id}`;
+        body = `Deleted lead ${event.pathParameters.email}`;
         break;
-      //Get lead by id  
-      case "GET /leads/{id}":
+
+        
+      //Get lead by email  
+      case "GET /leads/{email}":
         body = await dynamo
           .get({
-            TableName: "http-crud-tutorial-items",
+            TableName: "leads-hc",
             Key: {
-              id: event.pathParameters.id
+            email: event.pathParameters.email,
             }
           })
           .promise();
         break;
+    
       //Get all leads  
       case "GET /leads":
-        body = await dynamo.scan({ TableName: "http-crud-tutorial-items" }).promise();
+        body = await dynamo.scan({ TableName: "leads-hc" }).promise();
         break;
+        
       //Cria uma lead  
       case "POST /leads":
         let requestJSON = JSON.parse(event.body);
         await dynamo
           .put({
-            TableName: "http-crud-tutorial-items",
+            TableName: "leads-hc",
             Item: {
+              email: requestJSON.email,
               id: requestJSON.id,
               nome: requestJSON.nome,
-              email: requestJSON.email,
               telefone: requestJSON.telefone,
               cliente: requestJSON.cliente
             }
           })
           .promise();
-          body = `Post lead ${requestJSON.id}`;
+          body = `Created lead ${requestJSON.id}`;
         break;
-      //Update lead by id  
-      case "PUT /leads/{id}":
+        
+      //Update lead by email
+      case "PUT /leads/{email}":
         let requestJSON1 = JSON.parse(event.body);
         await dynamo.update({
-            TableName: 'http-crud-tutorial-items',
+            TableName: 'leads-hc',
             Key: {
-              id: event.pathParameters.id
+              email: event.pathParameters.email
             },
-
             UpdateExpression: "set cliente = :cliente",
             ExpressionAttributeValues: {
               ':cliente': requestJSON1.cliente
             }
           })
           .promise();
-        body = `Updated lead ${event.pathParameters.id}`;
+        body = `Updated lead ${event.pathParameters.email}`;
         break;
       default:
         throw new Error(`Unsupported route: "${event.routeKey}"`);
