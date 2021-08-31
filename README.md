@@ -1,8 +1,6 @@
-## API CRUD na AWS com Lambda e DynamoDB
-
-### 
 <div align="center">
-	</br><p>Projeto realizado para servir o site desenvolvido no desafio final do <a href="https://www.hiringcoders.com.br/">Hiring Coders 2021</a> da Gama Academy, VTEX, ACCT e AWS, realizado pelo grupo 16. </br>
+	<h1>API CRUD na AWS com Lambda e DynamoDB</h1>
+	</br><p>Projeto realizado no desafio final do <a href="https://www.hiringcoders.com.br/" target="_blank">Hiring Coders 2021</a> realizado pelo grupo 16.</br>
 	<p> <strong> API serveless que cria, lê, atualiza e exclui itens de uma tabela do DynamoDB </strong></p>
     	<img src="./api-framework.png "API framework"" width="70%">
 </div>
@@ -59,3 +57,7 @@
   - [AWS Lambda](https://docs.aws.amazon.com/lambda/index.html)
   - [Amazon API Gateway](https://docs.aws.amazon.com/apigateway/index.html)
 - [MDN Web Docs](https://developer.mozilla.org/en-US/)
+
+<br>
+
+Desenvolvido com ❤︎ pelo Grupo 16 ACCT.
