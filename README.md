@@ -1,12 +1,13 @@
-# API CRUD na AWS com Lambda e DynamoDB
+## API CRUD na AWS com Lambda e DynamoDB
 
-## API serveless que cria, lê, atualiza e exclui itens de uma tabela do DynamoDB
+### 
+<div align="center">
+	</br><p>Projeto realizado para servir o site desenvolvido no desafio final do <a href="https://www.hiringcoders.com.br/">Hiring Coders 2021</a> da Gama Academy, VTEX, ACCT e AWS, realizado pelo grupo 16. </br>
+	<p> <strong> API serveless que cria, lê, atualiza e exclui itens de uma tabela do DynamoDB </strong></p>
+    	<img src="./api-framework.png "API framework"" width="70%">
+</div>
 
-### Projeto realizado para servir o site desenvolvido no desafio final do Hiring Coders 2021 da Gama Academy, VTEX, ACCT e AWS, realizado pelo grupo 16
-
-![alt text](./api-framework.png "API framework")
-
-### Tecnologias utilizadas:
+### :computer: Tecnologias utilizadas
 
 - **Amazon DynamoDB**: é um serviço de banco de dados NoSQL totalmente gerenciado que oferece desempenho rápido e previsível com escalabilidade contínua.
 
@@ -16,9 +17,9 @@
 
 - **Javascript**
 
-### Passos do desenvolvimento do Projeto:
+### 📝 Passos do desenvolvimento do Projeto
 
-  1. Criar uma tabela no DynamoDB pelo https://console.aws.amazon.com/dynamodb/ ;
+1. Criar uma tabela no DynamoDB pelo https://console.aws.amazon.com/dynamodb/ ;
 
 2. Criar uma função do Lambda (index.js) pelo https://console.aws.amazon.com/lambda/ para o backend da API. Essa função do Lambda cria, lê, atualiza e exclui itens do DynamoDB. A função usa eventos do API Gateway para definir como interagir com o DynamoDB;
 
@@ -28,7 +29,7 @@
 
 5. Anexar as integração a todas as rotas da API, a função do Lambda é invocada quando um cliente chama qualquer uma de suas rotas.
 
-### Endpoints, rotas e métodos da API:
+### 📌 Endpoints, rotas e métodos da API
 
 - Busca todos os leads - GET - {{url AWS}}/leads
 - Busca lead por email - GET - {{url AWS}}/leads/{email}
@@ -52,7 +53,7 @@
 	"cliente": false
   }
   ```
-### Links:
+### 🖥️ Links de Referência
 - [AWS Documentation](https://docs.aws.amazon.com/index.html "AWS Documentation")
   - [Amazon DynamoDB](https://docs.aws.amazon.com/dynamodb/index.html)
   - [AWS Lambda](https://docs.aws.amazon.com/lambda/index.html)
