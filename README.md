@@ -1,6 +1,6 @@
 <div align="center">
 	<h1>API CRUD na AWS com Lambda e DynamoDB</h1>
-	</br><p>Projeto desenvolvido no desafio final do <a href="https://www.hiringcoders.com.br/" target="_blank">Hiring Coders 2021</a> pelo grupo 16.</br>
+	</br><p>Projeto desenvolvido no desafio final do <a href="https://www.hiringcoders.com.br/">Hiring Coders 2021</a> pelo grupo 16.</br>
 	<p> <strong> API serveless que cria, lê, atualiza e exclui itens de uma tabela do DynamoDB </strong></p>
     	<img src="./api-framework.png "API framework"" width="70%">
 </div>
@@ -25,7 +25,7 @@
   
 4. Configurar rotas e integrações para conectar a API e a função do Lambda;
 
-5. Anexar as integração a todas as rotas da API, a função do Lambda é invocada quando um cliente chama qualquer uma de suas rotas.
+5. Anexar a integração a todas as rotas da API, a função do Lambda é invocada quando um cliente chama qualquer uma de suas rotas.
 
 ### 📌 Endpoints, rotas e métodos da API
 
